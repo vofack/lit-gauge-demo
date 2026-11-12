@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "types": ["mocha"],
+    "noEmit": true
+  },
+  "include": ["src", "test", "stories", ".storybook"]
+}

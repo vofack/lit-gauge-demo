@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ui-gauge demo</title>
+    <link rel="icon" href="data:," />
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: system-ui, sans-serif;
+      }
+      body {
+        margin: 0;
+        padding: 2rem 1rem;
+        background: light-dark(#ffffff, #0d1117);
+        color: light-dark(#1f2328, #e6edf3);
+      }
+      main {
+        max-width: 48rem;
+        margin: 0 auto;
+      }
+      #showcase {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2.5rem;
+        padding: 1.5rem 1.5rem 1rem;
+        background: light-dark(#ffffff, #0d1117);
+        --ui-gauge-size: 10rem;
+      }
+      label {
+        display: block;
+        margin-top: 1.5rem;
+        font-weight: 600;
+      }
+      input[type='range'] {
+        width: 100%;
+      }
+    </style>
+    <script type="module" src="/src/ui-gauge.ts"></script>
+  </head>
+  <body>
+    <main>
+      <h1>&lt;ui-gauge&gt;</h1>
+      <div id="showcase">
+        <ui-gauge id="cpu" value="23" unit="%" label="CPU" warning="70" critical="90"></ui-gauge>
+        <ui-gauge id="temp" value="48" max="120" unit="°C" label="Engine" warning="90" critical="105"></ui-gauge>
+        <ui-gauge id="battery" value="82" unit="%" label="Battery" warning="30" critical="15"></ui-gauge>
+      </div>
+      <label for="drive">Drive all three gauges</label>
+      <input id="drive" type="range" min="0" max="100" value="23" />
+    </main>
+    <script type="module">
+      // Plain DOM API: a custom element is just an HTML element with properties.
+      const [cpu, temp, battery] = ['cpu', 'temp', 'battery'].map((id) => document.getElementById(id));
+      document.getElementById('drive').addEventListener('input', (e) => {
+        const t = Number(e.target.value) / 100;
+        cpu.value = Math.round(5 + 93 * t);
+        temp.value = Math.round(40 + 78 * t);
+        battery.value = Math.round(95 - 90 * t);
+      });
+    </script>
+  </body>
+</html>

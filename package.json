@@ -1,0 +1,52 @@
+{
+  "name": "lit-gauge-demo",
+  "version": "1.0.0",
+  "description": "A small, accessible circular gauge Web Component built with Lit and TypeScript.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "main": "dist/ui-gauge.js",
+  "types": "dist/ui-gauge.d.ts",
+  "exports": {
+    ".": "./dist/ui-gauge.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "preinstall": "node scripts/check-env.mjs",
+    "check-env": "node scripts/check-env.mjs",
+    "dev": "npm run check-env && vite",
+    "build": "npm run check-env && tsc -p tsconfig.build.json",
+    "typecheck": "npm run check-env && tsc --noEmit",
+    "test": "npm run check-env && web-test-runner",
+    "test:watch": "npm run check-env && web-test-runner --watch",
+    "storybook": "npm run check-env && storybook dev -p 6006 --no-open",
+    "build-storybook": "npm run check-env && storybook build -o storybook-static",
+    "capture": "npm run check-env && node scripts/capture-gif.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vofack/lit-gauge-demo.git"
+  },
+  "homepage": "https://vofack.github.io/lit-gauge-demo/",
+  "dependencies": {
+    "lit": "3.3.3"
+  },
+  "devDependencies": {
+    "@open-wc/testing": "5.0.0",
+    "@storybook/addon-a11y": "10.6.7",
+    "@storybook/addon-docs": "10.6.7",
+    "@storybook/web-components-vite": "10.6.7",
+    "@types/mocha": "10.0.10",
+    "@web/dev-server-esbuild": "2.0.1",
+    "@web/test-runner": "1.0.1",
+    "@web/test-runner-chrome": "1.0.2",
+    "gifenc": "1.0.3",
+    "playwright-core": "1.65.0",
+    "pngjs": "7.0.0",
+    "storybook": "10.6.7",
+    "typescript": "7.0.2",
+    "vite": "8.3.8"
+  }
+}

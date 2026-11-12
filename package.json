@@ -22,7 +22,7 @@
     "test": "npm run check-env && web-test-runner",
     "test:watch": "npm run check-env && web-test-runner --watch",
     "storybook": "npm run check-env && storybook dev -p 6006 --no-open",
-    "build-storybook": "npm run check-env && storybook build -o storybook-static",
+    "build-storybook": "npm run check-env && storybook build -o storybook-static && node scripts/brand-storybook.mjs",
     "capture": "npm run check-env && node scripts/capture-gif.mjs"
   },
   "repository": {
